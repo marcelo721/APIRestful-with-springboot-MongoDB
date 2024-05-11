@@ -20,6 +20,7 @@ public class Instantiation implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+
         userRepository.deleteAll();
 
         User maria = new User(null, "Maria Brown", "maria@gmail.com");

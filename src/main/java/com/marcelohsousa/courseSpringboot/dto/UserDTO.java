@@ -1,11 +1,18 @@
 package com.marcelohsousa.courseSpringboot.dto;
 
 import com.marcelohsousa.courseSpringboot.entities.User;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.util.Objects;
+
 
 public class UserDTO implements Serializable {
 
+
+
+    @Id
     private String id;
     private String name;
     private String email;
@@ -45,4 +52,15 @@ public class UserDTO implements Serializable {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof UserDTO userDTO)) return false;
+        return getId().equals(userDTO.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
 }
