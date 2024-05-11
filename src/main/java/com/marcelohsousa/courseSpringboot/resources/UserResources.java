@@ -2,6 +2,8 @@ package com.marcelohsousa.courseSpringboot.resources;
 
 
 import com.marcelohsousa.courseSpringboot.entities.User;
+import com.marcelohsousa.courseSpringboot.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,14 +18,13 @@ import java.util.List;
 public class UserResources {
 
 
+    @Autowired
+    private UserService service;
+
     @GetMapping
     public ResponseEntity<List<User>> findAll(){
 
-        List<User>  list = new ArrayList<>();
-
-        list.add(new User(null, "maria", "maria@gmail.com"));
-        list.add(new User(null, "joao", "joao@gmail.com"));
-
+        List<User> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 }

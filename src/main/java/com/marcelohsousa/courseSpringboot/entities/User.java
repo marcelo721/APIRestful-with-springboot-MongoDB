@@ -1,11 +1,18 @@
 package com.marcelohsousa.courseSpringboot.entities;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+
+@Document
 public class User  implements Serializable {
 
-    private Long Id;
+
+    @Id
+    private String  Id;
     private String name;
     private String email;
 
@@ -13,17 +20,17 @@ public class User  implements Serializable {
     public User() {
     }
 
-    public User(Long id, String name, String email) {
+    public User(String id, String name, String email) {
         Id = id;
         this.name = name;
         this.email = email;
     }
 
-    public Long getId() {
+    public String getId() {
         return Id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         Id = id;
     }
 
