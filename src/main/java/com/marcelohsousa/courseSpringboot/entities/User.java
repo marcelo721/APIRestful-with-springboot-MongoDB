@@ -3,6 +3,7 @@ package com.marcelohsousa.courseSpringboot.entities;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class User  implements Serializable {
     private String email;
 
 
-    @DBRef(lazy = true)
+   @DBRef(lazy = true)
     private List<Post> posts = new ArrayList<>();
 
 
