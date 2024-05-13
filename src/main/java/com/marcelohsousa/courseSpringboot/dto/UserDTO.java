@@ -10,8 +10,6 @@ import java.util.Objects;
 
 public class UserDTO implements Serializable {
 
-
-
     @Id
     private String id;
     private String name;

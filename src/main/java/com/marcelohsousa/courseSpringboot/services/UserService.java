@@ -1,6 +1,7 @@
 package com.marcelohsousa.courseSpringboot.services;
 
 
+import com.marcelohsousa.courseSpringboot.dto.UserDTO;
 import com.marcelohsousa.courseSpringboot.entities.User;
 import com.marcelohsousa.courseSpringboot.repositories.UserRepository;
 import com.marcelohsousa.courseSpringboot.services.exceptions.ObjectNotFoundException;
@@ -25,5 +26,13 @@ public class UserService {
         Optional<User> obj = userRepository.findById(id);
 
         return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+    }
+
+    public User insert(User user){
+        return userRepository.insert(user);
+    }
+
+    public User fromDTO(UserDTO userDTO){
+        return new User(userDTO.getId(), userDTO.getName(), userDTO.getEmail());
     }
 }
