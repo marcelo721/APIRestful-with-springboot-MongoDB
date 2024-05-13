@@ -1,6 +1,7 @@
-package com.marcelohsousa.courseSpringboot.dto.config;
+package com.marcelohsousa.courseSpringboot.config;
 
 
+import com.marcelohsousa.courseSpringboot.dto.AuthorDTO;
 import com.marcelohsousa.courseSpringboot.entities.Post;
 import com.marcelohsousa.courseSpringboot.entities.User;
 import com.marcelohsousa.courseSpringboot.repositories.PostRepository;
@@ -37,16 +38,15 @@ public class Instantiation implements CommandLineRunner {
         User alex = new User(null, "Alex Green", "alex@gmail.com");
         User bob = new User(null, "bob brown", "bob@gmail.com");
 
+        userRepository.saveAll(Arrays.asList(maria, alex, bob));
 
-
-        Post post1 = new Post(null, sdf.parse("21/03/2018").toInstant(), "partiu viagem", "valeu rapaziada", maria);
-        Post post2 = new Post(null, sdf.parse("22/03/2018").toInstant(), "partiu viagem", "valeu rapaziada", maria);
+        Post post1 = new Post(null, sdf.parse("21/03/2018").toInstant(), "partiu viagem", "valeu rapaziada", new AuthorDTO(maria));
+        Post post2 = new Post(null, sdf.parse("22/03/2018").toInstant(), "partiu viagem", "valeu rapaziada", new AuthorDTO(maria));
 
         postRepository.deleteAll();
 
         postRepository.saveAll(Arrays.asList(post1, post2));
 
-        userRepository.saveAll(Arrays.asList(maria, alex, bob));
 
     }
 }
