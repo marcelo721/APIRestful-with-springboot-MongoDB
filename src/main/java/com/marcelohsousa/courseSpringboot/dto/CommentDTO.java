@@ -2,6 +2,7 @@ package com.marcelohsousa.courseSpringboot.dto;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.Date;
 
 public class CommentDTO implements Serializable {
 
@@ -9,7 +10,7 @@ public class CommentDTO implements Serializable {
     private Instant date;
     private AuthorDTO author;
 
-    public CommentDTO() {
+    public CommentDTO(String text, Date parse, AuthorDTO author) {
     }
 
     public CommentDTO(String text, Instant date, AuthorDTO author) {

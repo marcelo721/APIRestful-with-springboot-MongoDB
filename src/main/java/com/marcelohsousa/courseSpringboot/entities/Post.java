@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -23,7 +24,7 @@ public class Post implements Serializable {
 
     private List<CommentDTO> comments = new ArrayList<>();
 
-    public Post() {
+    public Post(String id, Date parse, String partiu_viagem, String body, AuthorDTO author) {
     }
 
     public Post(String id, Instant data, String title, String body, AuthorDTO author) {
